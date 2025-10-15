@@ -13,7 +13,7 @@ class BankersAlgorithmGUI:
         tk.Label(self.root, text="Banker's Algorithm - Interactive Learning Demo",
                  font=('Helvetica', 16, 'bold')).pack(pady=10)
 
-        # Number of processes & resources
+        
         frame1 = tk.Frame(self.root)
         frame1.pack(pady=10)
         tk.Label(frame1, text="Number of Processes:").grid(row=0, column=0, padx=5)
@@ -40,11 +40,11 @@ class BankersAlgorithmGUI:
             messagebox.showerror("Error", "Enter valid numbers")
             return
 
-        # Labels
+        
         tk.Label(self.table_frame, text="Enter Allocation Matrix").grid(row=0, column=0, padx=10)
         tk.Label(self.table_frame, text="Enter Max Matrix").grid(row=0, column=self.m+1, padx=10)
 
-        # Allocation Matrix
+        
         self.alloc_entries = []
         for i in range(self.n):
             row = []
@@ -54,7 +54,7 @@ class BankersAlgorithmGUI:
                 row.append(e)
             self.alloc_entries.append(row)
 
-        # Max Matrix
+        
         self.max_entries = []
         for i in range(self.n):
             row = []
@@ -64,7 +64,7 @@ class BankersAlgorithmGUI:
                 row.append(e)
             self.max_entries.append(row)
 
-        # Available
+        
         tk.Label(self.table_frame, text="Available:").grid(row=self.n+2, column=0, pady=10)
         self.avail_entries = []
         for j in range(self.m):
@@ -113,18 +113,19 @@ class BankersAlgorithmGUI:
         self.result_box.insert(tk.END, "\nFinal Work Vector: " + str(work) + "\n")
 
         if len(safe_seq) == self.n:
-            self.result_box.insert(tk.END, f"\n✅ System is in SAFE STATE.\nSafe Sequence: {' -> '.join(safe_seq)}")
+            self.result_box.insert(tk.END, f"\n System is in SAFE STATE.\nSafe Sequence: {' -> '.join(safe_seq)}")
         else:
-            self.result_box.insert(tk.END, "\n❌ System is NOT in a safe state (Deadlock possible).")
+            self.result_box.insert(tk.END, "\n System is NOT in a safe state (Deadlock possible).")
 
 
-if __name__ == "__main__":  # ✅ Corrected: use __name__ and __main__
+if __name__ == "__main__":  
     root = tk.Tk()
     app = BankersAlgorithmGUI(root)
     root.mainloop()
-    def __init__(self, root):  # ✅ Corrected: use __init__ instead of _init_
+    def __init__(self, root): 
         self.root = root
         self.root.title("Banker's Algorithm Visual Demo")
         self.root.geometry("900x650")
+
 
         self.create_widgets()
